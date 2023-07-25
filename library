@@ -1,0 +1,58 @@
+class Library:
+
+
+
+    def __init__(self,listofbooks):
+
+        self.availablebooks=listofbooks
+
+    def displayavailablebook(self):
+        print()
+        print("Available Books")
+        for book in self.availablebooks:
+            print(book)
+
+    def lendbook(self,requestedbook):
+
+        if requestedbook in self.availablebooks:
+            print("You have now borrow the book")
+            self.availablebooks.remove(requestedbook)
+        else:
+            print("sorry the book not available")
+
+    def add_book(self,returnedbook):
+
+        self.availablebooks.append(returnedbook)
+        print("you return the book >Thanks")
+class Customer:
+
+    def requestedbook(self):
+        print("enter the book name you want to borrow")
+        self.book=input()
+        return self.book
+    def returnedbook(self):
+        print("enter the book name you return")
+        self.book=input()
+        return self.book
+
+
+library=Library(['a','aa','aaa'])
+customer=Customer()
+
+while True:
+    print("ENter 1 to display the available book")
+    print("Enter 2 request  book")
+    print("Enter 3 return the book ")
+    print('Enter 4 to exit')
+
+    userchoice=int(input())
+    if userchoice == 1:
+        library.displayavailablebook()
+    elif userchoice == 2:
+        requestedBook=customer.requestedbook()
+        library.lendbook(requestedBook)
+    elif userchoice == 3 :
+        returnedBook=customer.returnedbook()
+        library.add_book(returnedBook)
+    elif userchoice == 4:
+        quit()
