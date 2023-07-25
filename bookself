@@ -1,0 +1,31 @@
+class BookShelf:
+
+    def __init__(self):
+        self.rack=[[],
+                   [],
+                   []
+                    ]
+
+    def add_book(self,book,possiton):
+        self.rack[possiton].append(book)
+
+    def take_book(self,book,possition):
+        self.rack[possition].remove(book)
+
+    def __getitem__(self, possition):
+        return self.rack[possition]
+
+my_bookshelf=BookShelf()
+my_bookshelf.add_book("a",0)
+my_bookshelf.add_book("aa",0)
+my_bookshelf.add_book("aaa",0)
+print(my_bookshelf.rack)
+my_bookshelf.add_book("b",1)
+my_bookshelf.add_book("bb",1)
+my_bookshelf.add_book("bbb",1)
+print(my_bookshelf.rack)
+my_bookshelf.take_book("b",1)
+print(my_bookshelf.rack)
+
+a=my_bookself.__getitem__(0)
+print(a)
